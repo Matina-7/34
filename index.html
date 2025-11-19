@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui">
+        <!-- Top Bar -->
+        <div id="topbar">
+            <div>
+                <span>💰 Gold: <span id="goldAmount">1000</span></span>
+                <span style="margin-left:20px">⚡ Energy: <span id="energyAmount">100</span></span>
+            </div>
+            <div>
+                <button onclick="showDialog()">Help</button>
+                <button onclick="resetGame()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Item Panel -->
+        <div id="itemPanel">
+            <h3>Building Materials</h3>
+            <button onclick="selectItem('brick')">🧱 Brick (10 Gold)</button>
+            <button onclick="selectItem('wood')">🪵 Wood (5 Gold)</button>
+            <button onclick="selectItem('stone')">🪨 Stone (15 Gold)</button>
+            <button onclick="selectItem('glass')">🪟 Glass (20 Gold)</button>
+        </div>
+
+        <!-- Canvas -->
+        <canvas id="gameCanvas" width="1180" height="600"></canvas>
+    </div>
+
+    <!-- Dialog Overlay -->
+    <div id="dialogOverlay" class="hidden">
+        <div id="dialogBox">
+            <h2 id="dialogTitle">Welcome to Construction Game!</h2>
+            <p id="dialogText">
+                Click on building materials to select them, then click on the canvas to place them.
+                Build your dream structure!
+            </p>
+            <div id="dialogChoices">
+                <button onclick="closeDialog()">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
