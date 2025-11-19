@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#ui {
+    width: 1200px;
+    margin-bottom: 10px;
+}
+
+#topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+#hud {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#coinCount {
+    color: #f39c12;
+    font-size: 20px;
+}
+
+#hint {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+#message {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#itemPanel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#itemStatus {
+    font-weight: bold;
+    color: #3498db;
+}
+
+#gameCanvas {
+    border: 4px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: #87CEEB;
+}
+
+/* Dialog Overlay */
+#dialogOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#dialogOverlay.hidden {
+    display: none;
+}
+
+#dialogBox {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#dialogText {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+#dialogChoices {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#dialogChoices button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#dialogChoices button:hover {
+    background: #2980b9;
+}
+
+#dialogHint {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+#dialogClose {
+    padding: 10px 30px;
+    font-size: 16px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#dialogClose:hover {
+    background: #c0392b;
+}
