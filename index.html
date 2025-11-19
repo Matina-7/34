@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>暹罗猫冒险</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui">
+        <div id="topbar">
+            <div id="hud">
+                金币：<span id="coinCount">0</span>/10
+                <span id="hint"> | 控制：W = 跳跃 / A = 左 / D = 右</span>
+            </div>
+            <div id="timer">90.0 秒</div>
+        </div>
+        <div id="message"></div>
+        <div id="itemPanel">
+            <span>已选物品：</span>
+            <span id="itemStatus">无</span>
+        </div>
+    </div>
+    <canvas id="gameCanvas" width="1200" height="500"></canvas>
+
+    <!-- 叙事对话框 -->
+    <div id="dialogOverlay" class="hidden">
+        <div id="dialogBox">
+            <div id="dialogText">你发现了一些有趣的东西！</div>
+            <div id="dialogChoices"></div>
+            <div id="dialogHint">选择一个物品继续。</div>
+            <button id="dialogClose">关闭</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
