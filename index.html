@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Adventure Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        #gameInfo {
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #gameInfo div {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #gameInfo span {
+            color: #667eea;
+        }
+
+        #gameCanvas {
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(180deg, #87CEEB 0%, #98D8C8 100%);
+        }
+
+        #message {
+            margin-top: 15px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            min-height: 30px;
+        }
+
+        #dialogOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #dialogOverlay.hidden {
+            display: none;
+        }
+
+        #dialogBox {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        #dialogText {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        #dialogChoices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        #dialogChoices button {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        #dialogChoices button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #dialogClose {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #dialogClose:hover {
+            background: #5a6268;
+        }
+
+        .controls {
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .controls h3 {
+            margin: 0 0 10px 0;
+            color: #667eea;
+        }
+
+        .controls p {
+            margin: 5px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐱 Cat Adventure Game 🐱</h1>
+
+    <div id="gameInfo">
+        <div>Coins: <span id="coinCount">0</span>/10</div>
+        <div>Time: <span id="timer">90.0s</span></div>
+        <div>Item: <span id="itemStatus">None</span></div>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+    <div id="message"></div>
+
+    <div class="controls">
+        <h3>Controls</h3>
+        <p><strong>A/D</strong> - Move Left/Right | <strong>W</strong> - Jump (Double Jump Available!)</p>
+        <p>Collect 7+ coins, avoid monsters, reach the end (x > 3000)!</p>
+    </div>
+
+    <div id="dialogOverlay" class="hidden">
+        <div id="dialogBox">
+            <div id="dialogText">Choose a magical item to help you on your journey!</div>
+            <div id="dialogChoices"></div>
+            <button id="dialogClose">Close</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
